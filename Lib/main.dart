@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart;
-import 'package:apk_storage/splashscreen_view.dart;
+import 'package:flutter/material.dart';
+import 'package:m2r_iventory/splashsreen.dart';
 
 void main() => runApp(MyApp());
-class MyApp extends StatelessWigdet {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
