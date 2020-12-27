@@ -1,6 +1,6 @@
 # m2r_iventory
 
-A new Flutter application.
+Tugas Besar Pemograman Mobile 2
 
 ## Getting Started
 
