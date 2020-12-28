@@ -1,6 +1,7 @@
 # m2r_iventory
 
 Tugas Besar Pemograman Mobile 2
+Kelompok 10
 
 ## Getting Started
 
