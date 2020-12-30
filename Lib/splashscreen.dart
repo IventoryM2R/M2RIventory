@@ -2,6 +2,9 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
+import 'package:m2r_iventory/login.dart';
+
+
 
 
 class Splashscreen extends StatefulWidget {
@@ -22,7 +25,7 @@ class _SplashScreen extends State<Splashscreen> {
     return Timer(duration, (){
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => Login()),
+        MaterialPageRoute(builder: (context) => LoginPage()),
 
       );
     });

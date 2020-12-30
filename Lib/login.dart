@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'splashscreen.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String username = 'adudu.10gmail.com';
-  String password = 'adudu.10';
+  String username = '';
+  String password = '';
   TextEditingController usernameController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
   final formKey = new GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height * 1,
@@ -27,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 padding: EdgeInsets.all(0),
                 child: new Image.network(
-                  'https://www.zahironline.com/wp-content/uploads/2017/03/icon-persediaan-barang-1.png',
+                  'https://img2.pngdownload.id/20180706/uz/kisspng-inventory-management-software-inventory-control-ca-inventory-management-5b3f78867f8837.1264250415308862785224.jpg',
                   scale: 2,
                 ),
               ),
@@ -56,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
               },
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.pink, width: 10)),
+                    borderSide: BorderSide(color: Colors.white, width: 10)),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.black, width: 1.5)),
                 focusedBorder: OutlineInputBorder(
@@ -100,11 +102,11 @@ class _LoginPageState extends State<LoginPage> {
                   usernameController.text.toString() == username) {
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => Splashscreen()),
                     (Route<dynamic> route) => false);
               }
             },
-            color: Colors.pink,
+            color: Colors.blueAccent,
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Container(
               width: MediaQuery.of(context).size.width * 0.8,
@@ -112,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Center(
                 child: Text(
                   'Login',
-                  style: TextStyle(fontSize: 24, color: Colors.black),
+                  style: TextStyle(fontSize: 24, color: Colors.white),
                 ),
               ),
             ),
