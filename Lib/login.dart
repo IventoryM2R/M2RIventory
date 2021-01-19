@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 padding: EdgeInsets.all(0),
                 child: new Image.network(
-                  'https://img2.pngdownload.id/20180706/uz/kisspng-inventory-management-software-inventory-control-ca-inventory-management-5b3f78867f8837.1264250415308862785224.jpg',
+                  'https://aboutaccurate.com/wp-content/uploads/2019/04/stokopname-small.png',
                   scale: 2,
                 ),
               ),
