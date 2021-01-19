@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'Menu.dart';
 import 'splashscreen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -102,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                   usernameController.text.toString() == username) {
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => Splashscreen()),
+                    MaterialPageRoute(builder: (context) => HomePage()),
                     (Route<dynamic> route) => false);
               }
             },
