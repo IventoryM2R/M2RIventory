@@ -9,8 +9,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String username = '';
-  String password = '';
+  String username ='admin';
+  String password = 'Admin';
   TextEditingController usernameController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
   final formKey = new GlobalKey<FormState>();

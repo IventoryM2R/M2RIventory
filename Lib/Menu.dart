@@ -84,10 +84,10 @@ class _MenuState extends State<HomePage> {
                         'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg  '),
                     fit: BoxFit.cover),
               ),
-              accountName: Text("adudu30"),
-              accountEmail: Text("adudu.30@gmail.com"),
+              accountName: Text("admin"),
+              accountEmail: Text("Admin"),
               decoration: BoxDecoration(
-                color: Colors.pink,
+                color: Colors.blue,
               ),
             ),
             _buildListTile(Icons.home, "Home", null),
