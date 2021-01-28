@@ -1,7 +1,8 @@
 import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
-import 'package:m2r_iventory/model/item.dart';
+
+import '../model/edit_item.dart';
 
 
 class EditItemPage extends StatefulWidget {
@@ -21,7 +22,6 @@ class _EditItemPageState extends State<EditItemPage> {
   TextEditingController hargaController;
   File image;
 
-
   @override
   void initState() {
     nameController = TextEditingController();
@@ -37,7 +37,6 @@ class _EditItemPageState extends State<EditItemPage> {
 
   @override
   Widget build(BuildContext context) {
-
     if (widget.item != null) {
       nameController.text = widget.item.name;
       descController.text = widget.item.desc;
@@ -111,8 +110,8 @@ class _EditItemPageState extends State<EditItemPage> {
                                 : widget.item != null
                                 ? widget.item.image.isNotEmpty
                                 ? NetworkImage(widget.item.image)
-                                : NetworkImage("https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg")
-                                : NetworkImage("https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg"),
+                                : AssetImage('')
+                                : AssetImage(''),
                           ),
                         ),
                         onTap: () {
@@ -189,24 +188,35 @@ class _EditItemPageState extends State<EditItemPage> {
                         desc: descController.text,
                         qty: int.parse(qtyController.text),
                         harga: int.parse(hargaController.text),
-
+                        status: '',
 
                       );
-                      if (widget.item == null) {
-                        FirebaseFirestore.instance
-                            .collection('item')
-                            .add(item.toJson());
-                      } else {
-                        FirebaseFirestore.instance
-                            .collection('item')
-                            .doc(widget.id)
-                            .update(item.toJson());
-                      }
+                      // if (widget.item == null) {
+                      //   FirebaseFirestore.instance
+                      //       .collection('item')
+                      //       .add(item.toJson());
+                      // } else {
+                      //   FirebaseFirestore.instance
+                      //       .collection('item')
+                      //       .doc(widget.id)
+                      //       .update(item.toJson());
+                      // }
+                    //   // if (widget.item == null) {
+                    //   //   FirebaseFirestore.instance
+                    //   //       .collection('item')
+                    //   //       .doc(randomMillis)
+                    //   //       .set(item.toJson());
+                    //   // } else {
+                    //   //   FirebaseFirestore.instance
+                    //   //       .collection('item')
+                    //   //       .doc(widget.id)
+                    //   //       .update(item.toJson());
+                    //   // }
                       Navigator.pop(context);
                     },
                   ),
                   Visibility(
-                    // visible: widget.item != null ? true : false,
+                    visible: widget.item != null ? true : false,
                     child: FlatButton(
                       height: 45,
                       color: Colors.red,
@@ -218,10 +228,10 @@ class _EditItemPageState extends State<EditItemPage> {
                         ),
                       ),
                       onPressed: () {
-                        FirebaseFirestore.instance
-                            .collection('item')
-                            .doc(widget.id)
-                            .delete();
+                        // FirebaseFirestore.instance
+                        //     .collection('item')
+                        //     .doc(widget.id)
+                        //     .delete();
                         Navigator.pop(context);
                       },
                     ),
@@ -235,59 +245,59 @@ class _EditItemPageState extends State<EditItemPage> {
     );
   }
 
-//   imgFromCamera() async {
-//     PickedFile imgCamera = await ImagePicker()
-//         .getImage(source: ImageSource.camera, imageQuality: 50);
-//     setState(() {
-//       image = File(imgCamera.path);
-//     });
-//   }
-//
-//   imgFromGallery() async {
-//     PickedFile imgGallery = await ImagePicker()
-//         .getImage(source: ImageSource.gallery, imageQuality: 50);
-//     setState(() {
-//       image = File(imgGallery.path);
-//     });
-//   }
-//
-//   getImage(context) {
-//     showModalBottomSheet(
-//       context: context,
-//       builder: (BuildContext bc) {
-//         return SafeArea(
-//           child: Container(
-//             child: Wrap(
-//               children: <Widget>[
-//                 ListTile(
-//                     leading: Icon(Icons.photo_library),
-//                     title: Text('Gallery'),
-//                     onTap: () {
-//                       imgFromGallery();
-//                       Navigator.of(context).pop();
-//                     }),
-//                 ListTile(
-//                   leading: Icon(Icons.photo_camera),
-//                   title: Text('Camera'),
-//                   onTap: () {
-//                     imgFromCamera();
-//                     Navigator.of(context).pop();
-//                   },
-//                 ),
-//               ],
-//             ),
-//           ),
-//         );
-//       },
-//     );
-//   }
-//
-//   Future<String> uploadFile(File image, String filename) async {
-//     // FirebaseStorage storage = FirebaseStorage.instance;
-//     // Reference ref = storage.ref().child("item/" + filename);
-//     UploadTask uploadTask = ref.putFile(image);
-//     return uploadTask.then((res) async {
-//       return await res.ref.getDownloadURL();
-//     });
-//   }
+  // imgFromCamera() async {
+  //   PickedFile imgCamera = await ImagePicker()
+  //       .getImage(source: ImageSource.camera, imageQuality: 50);
+  //   setState(() {
+  //     image = File(imgCamera.path);
+  //   });
+  // }
+  //
+  // imgFromGallery() async {
+  //   PickedFile imgGallery = await ImagePicker()
+  //       .getImage(source: ImageSource.gallery, imageQuality: 50);
+  //   setState(() {
+  //     image = File(imgGallery.path);
+  //   });
+  // }
+
+  // getImage(context) {
+  //   showModalBottomSheet(
+  //     context: context,
+  //     builder: (BuildContext bc) {
+  //       return SafeArea(
+  //         child: Container(
+  //           child: Wrap(
+  //             children: <Widget>[
+  //               ListTile(
+  //                   leading: Icon(Icons.photo_library),
+  //                   title: Text('Gallery'),
+  //                   onTap: () {
+  //                     imgFromGallery();
+  //                     Navigator.of(context).pop();
+  //                   }),
+  //               ListTile(
+  //                 leading: Icon(Icons.photo_camera),
+  //                 title: Text('Camera'),
+  //                 onTap: () {
+  //                   imgFromCamera();
+  //                   Navigator.of(context).pop();
+  //                 },
+  //               ),
+  //             ],
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
+
+  // Future<String> uploadFile(File image, String filename) async {
+  //   // FirebaseStorage storage = FirebaseStorage.instance;
+  //   // Reference ref = storage.ref().child("item/" + filename);
+  //   UploadTask uploadTask = ref.putFile(image);
+  //   return uploadTask.then((res) async {
+  //     return await res.ref.getDownloadURL();
+  //   });
+  // }
 }
