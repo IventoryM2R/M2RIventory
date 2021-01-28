@@ -5,7 +5,7 @@ class Item {
   final String desc;
   final int qty;
   final int harga;
-  // final String status;
+  final String status;
 
   Item({
     this.id,
@@ -14,7 +14,7 @@ class Item {
     this.desc,
     this.qty,
     this.harga,
-    // this.status,
+    this.status,
   });
 
   factory Item.fromJson(Map<String, dynamic> json) {
@@ -25,7 +25,7 @@ class Item {
       desc: json['desc'],
       qty: json['qty'],
       harga: json['harga'],
-      // status: json['status'],
+      status: json['status'],
     );
   }
 
@@ -36,6 +36,6 @@ class Item {
     'desc': desc,
     'qty': qty,
     'harga': harga,
-
+    'status': status,
   };
 }
