@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:m2r_iventory/page_edit/edit_page.dart';
-import 'package:m2r_iventory/model/item.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
+import 'package:m2r_iventory/model/item.dart';
 import 'widget/card_item.dart';
-
 
 class PageComputer extends StatefulWidget {
   @override
@@ -17,22 +15,8 @@ class _PageComputerState extends State<PageComputer> {
   void iniState() {
     super.initState();
   }
- 
-  // final data = [
-  //   Item(
-  //     id: "1",
-  //     name: "Asus X401U",
-  //     image: " ",
-  //     desc: "Processor AMD E2 1800 (1.7 Ghz.) ",
-  //     qty: 1,
-  //     harga: 4500000,
-  //     status: "ada",
-  //   ),
-  // ];
-
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(
@@ -66,7 +50,6 @@ class _PageComputerState extends State<PageComputer> {
                         name: document['name'],
                         image: document['image'],
                         desc: document['desc'],
-                        qty: document['qty'],
                         harga: document['harga'],
 
 
@@ -80,7 +63,7 @@ class _PageComputerState extends State<PageComputer> {
                             MaterialPageRoute(
                               builder: (context) => EditItemPage(
                                   item: item,
-                                id: document.id,
+                                  id: document.id,
                               ),
                             ),
                           );
@@ -99,32 +82,12 @@ class _PageComputerState extends State<PageComputer> {
         title: Text('Komputer'),
       ),
 
-      // body: ListView.builder(
-      //     itemCount: data.length,
-      //     itemBuilder: (context, i){
-      //       return Card(
-      //         elevation: 8,
-      //         child: ListTile(
-      //           title: Text(
-      //             data[i].name,
-      //             style: TextStyle(
-      //                 fontSize: 18, fontWeight: FontWeight.bold),
-      //           ),
-      //           subtitle:
-      //           Text('Desc: ${data[i].desc}'),
-      //           trailing:
-      //           Text("\Rp.${data[i].harga}"),
-      //         ),
-      //       );
-      //       //   }
-      //       // ),
-
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,
-          MaterialPageRoute(
+            MaterialPageRoute(
               builder: (context) => EditItemPage(item: null)),
-          );
+          );// Add your onPressed code here!
         },
         child: Icon(Icons.add),
         backgroundColor: Colors.blue,

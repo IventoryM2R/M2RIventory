@@ -34,7 +34,7 @@ class _CardItemState extends State<CardItem> {
             ),
             child: Image.network(
               'https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg',
-              height: 160,
+              height: 175,
               width: 150,
               fit: BoxFit.cover,
             ),
@@ -43,7 +43,7 @@ class _CardItemState extends State<CardItem> {
             padding: const EdgeInsets.all(5),
             child: Text(
               widget.item.name,
-              style: TextStyle(fontSize: 12, color: Colors.black),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
@@ -57,19 +57,8 @@ class _CardItemState extends State<CardItem> {
           Padding(
             padding: const EdgeInsets.all(5),
             child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                widget.item.qty.toString(),
-                style: TextStyle(fontSize: 12, color: Colors.black),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(5),
-            child: Align(
               alignment: Alignment.bottomRight,
-              child: Text(
-                widget.item.harga.toString(),
+              child: Text('Rp. ${widget.item.harga}',
                 style: TextStyle(fontSize: 12, color: Colors.black),
               ),
             ),

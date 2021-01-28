@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-
-import '../model/itemHp.dart';
+import 'package:m2r_iventory/model/itemHp.dart';
 
 
 class CardItemHp extends StatefulWidget {
-  final ItemHp item;
+  final ItemHp itemHp;
 
-  CardItemHp({@required this.item});
+  CardItemHp({@required this.itemHp});
 
   @override
-  _CardItemState createState() => _CardItemState();
+  _CardItemStateHp createState() => _CardItemStateHp();
 }
 
-class _CardItemState extends State<CardItemHp> {
+class _CardItemStateHp extends State<CardItemHp> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,14 +43,14 @@ class _CardItemState extends State<CardItemHp> {
           Padding(
             padding: const EdgeInsets.all(5),
             child: Text(
-              widget.item.name,
+              widget.itemHp.name,
               style: TextStyle(fontSize: 12, color: Colors.black),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(5),
             child: Text(
-              widget.item.desc,
+              widget.itemHp.desc,
               style: TextStyle(fontSize: 12, color: Colors.black),
               maxLines: 3,
             ),
@@ -59,20 +58,9 @@ class _CardItemState extends State<CardItemHp> {
           Padding(
             padding: const EdgeInsets.all(5),
             child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                widget.item.qty.toString(),
-                style: TextStyle(fontSize: 12, color: Colors.black),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(5),
-            child: Align(
               alignment: Alignment.bottomRight,
-              child: Text(
-                widget.item.harga.toString(),
-                style: TextStyle(fontSize: 12, color: Colors.black),
+              child: Text('Rp. ${widget.itemHp.harga}',
+                  style: TextStyle(fontSize: 12, color: Colors.black),
               ),
             ),
           ),

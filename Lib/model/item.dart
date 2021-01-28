@@ -3,7 +3,6 @@ class Item {
   final String name;
   final String image;
   final String desc;
-  final int qty;
   final int harga;
   // final String status;
 
@@ -12,7 +11,6 @@ class Item {
     this.name,
     this.image,
     this.desc,
-    this.qty,
     this.harga,
     // this.status,
   });
@@ -23,7 +21,6 @@ class Item {
       name: json['name'],
       image: json['image'],
       desc: json['desc'],
-      qty: json['qty'],
       harga: json['harga'],
       // status: json['status'],
     );
@@ -34,8 +31,7 @@ class Item {
     'name': name,
     'image': image,
     'desc': desc,
-    'qty': qty,
     'harga': harga,
-
+    // 'status': status,
   };
 }
