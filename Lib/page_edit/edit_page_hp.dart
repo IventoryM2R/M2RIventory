@@ -1,5 +1,5 @@
-import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import '../model/itemHp.dart';
 
@@ -10,34 +10,38 @@ class EditItemPageHp extends StatefulWidget {
   EditItemPageHp({@required this.itemHp, this.id});
 
   @override
-  _EditItemPageStateHp createState() => _EditItemPageStateHp();
+  _EditItemPageState createState() => _EditItemPageState();
 }
 
-class _EditItemPageStateHp extends State<EditItemPageHp> {
-  TextEditingController nameController;
-  TextEditingController descController;
-  TextEditingController qtyController;
-  TextEditingController hargaController;
+class _EditItemPageState extends State<EditItemPageHp> {
+  TextEditingController nameControllere;
+  TextEditingController descControllere;
+  TextEditingController qtyControllere;
+  TextEditingController hargaControllere;
   File image;
 
 
   @override
   void iniHp() {
-    nameController = TextEditingController();
-    descController = TextEditingController();
-    hargaController = TextEditingController();
-    nameController.text = '';
-    descController.text = '';
-    hargaController.text = '';
-    super.iniHp();
+    nameControllere = TextEditingController();
+    descControllere = TextEditingController();
+    qtyControllere = TextEditingController();
+    hargaControllere = TextEditingController();
+    nameControllere.text = '';
+    descControllere.text = '';
+    qtyControllere.text = '';
+    hargaControllere.text = '';
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+
     if (widget.itemHp != null) {
-      nameController.text = widget.itemHp.name;
-      descController.text = widget.itemHp.desc;
-      hargaController.text = widget.itemHp.harga.toString();
+      nameControllere.text = widget.itemHp.name;
+      descControllere.text = widget.itemHp.desc;
+      qtyControllere.text = widget.itemHp.qty.toString();
+      hargaControllere.text = widget.itemHp.harga.toString();
     }
 
     return Scaffold(
@@ -117,7 +121,7 @@ class _EditItemPageStateHp extends State<EditItemPageHp> {
                     ),
                   ),
                   TextField(
-                    controller: nameController,
+                    controller: nameControllere,
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
@@ -129,7 +133,7 @@ class _EditItemPageStateHp extends State<EditItemPageHp> {
                     height: 10,
                   ),
                   TextField(
-                    controller: descController,
+                    controller: descControllere,
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
@@ -141,7 +145,20 @@ class _EditItemPageStateHp extends State<EditItemPageHp> {
                     height: 10,
                   ),
                   TextField(
-                    controller: hargaController,
+                    controller: qtyControllere,
+                    keyboardType: TextInputType.number,
+                    textAlignVertical: TextAlignVertical.center,
+                    textAlign: TextAlign.left,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Qty',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextField(
+                    controller: hargaControllere,
                     keyboardType: TextInputType.number,
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.left,
@@ -165,11 +182,13 @@ class _EditItemPageStateHp extends State<EditItemPageHp> {
                     ),
                     onPressed: () async {
                       ItemHp itemHp = ItemHp(
-                        id: '',
-                        name: nameController.text,
+                        id: '1',
                         image: '',
-                        desc: descController.text,
-                        harga: int.parse(hargaController.text),
+                        desc: descControllere.text,
+                        qty: int.parse(qtyControllere.text),
+                        harga: int.parse(hargaControllere.text),
+
+
                       );
                       if (widget.itemHp == null) {
                         FirebaseFirestore.instance
@@ -185,7 +204,7 @@ class _EditItemPageStateHp extends State<EditItemPageHp> {
                     },
                   ),
                   Visibility(
-                    visible: widget.itemHp != null ? true : false,
+                    // visible: widget.item != null ? true : false,
                     child: FlatButton(
                       height: 45,
                       color: Colors.red,

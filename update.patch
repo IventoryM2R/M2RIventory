@@ -1,0 +1,341 @@
+Index: Lib/page_edit/edit_page.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Lib/page_edit/edit_page.dart	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ Lib/page_edit/edit_page.dart	(date 1612069520171)
+@@ -1,7 +1,8 @@
+ import 'dart:io';
+ import 'package:cloud_firestore/cloud_firestore.dart';
+ import 'package:flutter/material.dart';
+-import '../model/item.dart';
++import 'package:m2r_iventory/model/item.dart';
++
+ 
+ 
+ class EditItemPage extends StatefulWidget {
+@@ -106,8 +107,8 @@
+                                 : widget.item != null
+                                 ? widget.item.image.isNotEmpty
+                                 ? NetworkImage(widget.item.image)
+-                                : NetworkImage("https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg")
+-                                : NetworkImage("https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg"),
++                                : AssetImage('')
++                                : AssetImage(''),
+                           ),
+                         ),
+                         onTap: () {
+@@ -170,7 +171,6 @@
+                         image: '',
+                         desc: descController.text,
+                         harga: int.parse(hargaController.text),
+-
+                       );
+                       if (widget.item == null) {
+                         FirebaseFirestore.instance
+@@ -187,12 +187,29 @@
+                       //       .collection('item')
+                       //       .doc(randomMillis)
+                       //       .set(item.toJson());
++                      // if (widget.item == null) {
++                      //   FirebaseFirestore.instance
++                      //       .collection('item')
++                      //       .add(item.toJson());
++
+                       // } else {
+                       //   FirebaseFirestore.instance
+                       //       .collection('item')
+                       //       .doc(widget.id)
+                       //       .update(item.toJson());
+                       // }
++
++                    //   // if (widget.item == null) {
++                    //   //   FirebaseFirestore.instance
++                    //   //       .collection('item')
++                    //   //       .doc(randomMillis)
++                    //   //       .set(item.toJson());
++                    //   // } else {
++                    //   //   FirebaseFirestore.instance
++                    //   //       .collection('item')
++                    //   //       .doc(widget.id)
++                    //   //       .update(item.toJson());
++                    //   // }
+                       Navigator.pop(context);
+                     },
+                   ),
+@@ -209,10 +226,10 @@
+                         ),
+                       ),
+                       onPressed: () {
+-                        FirebaseFirestore.instance
+-                            .collection('item')
+-                            .doc(widget.id)
+-                            .delete();
++                        // FirebaseFirestore.instance
++                        //     .collection('item')
++                        //     .doc(widget.id)
++                        //     .delete();
+                         Navigator.pop(context);
+                       },
+                     ),
+Index: Lib/model/item.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Lib/model/item.dart	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ Lib/model/item.dart	(date 1612069520069)
+@@ -4,7 +4,7 @@
+   final String image;
+   final String desc;
+   final int harga;
+-  // final String status;
++  final String status;
+ 
+   Item({
+     this.id,
+@@ -12,7 +12,7 @@
+     this.image,
+     this.desc,
+     this.harga,
+-    // this.status,
++    this.status,
+   });
+ 
+   factory Item.fromJson(Map<String, dynamic> json) {
+@@ -22,7 +22,7 @@
+       image: json['image'],
+       desc: json['desc'],
+       harga: json['harga'],
+-      // status: json['status'],
++      status: json['status'],
+     );
+   }
+ 
+@@ -32,6 +32,5 @@
+     'image': image,
+     'desc': desc,
+     'harga': harga,
+-    // 'status': status,
+   };
+ }
+Index: android/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- android/build.gradle	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ android/build.gradle	(date 1612088406070)
+@@ -8,7 +8,6 @@
+     dependencies {
+         classpath 'com.android.tools.build:gradle:3.5.0'
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+-        classpath 'com.google.gms:google-services:4.3.5'
+     }
+ }
+ 
+Index: android/app/google-services.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- android/app/google-services.json	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ android/app/google-services.json	(date 1612069035366)
+@@ -1,33 +1,33 @@
+ {
+   "project_info": {
+-    "project_number": "523815393579",
+-    "project_id": "m2r-iventory-4ec08",
+-    "storage_bucket": "m2r-iventory-4ec08.appspot.com"
++    "project_number": "964010061455",
++    "project_id": "m2r-iventory",
++    "storage_bucket": "m2r-iventory.appspot.com"
+   },
+   "client": [
+     {
+       "client_info": {
+-        "mobilesdk_app_id": "1:523815393579:android:1b7a35e4b794e819ee8d6e",
++        "mobilesdk_app_id": "1:964010061455:android:b1a590c9cb0561db498afa",
+         "android_client_info": {
+           "package_name": "com.example.m2r_iventory"
+         }
+       },
+       "oauth_client": [
+         {
+-          "client_id": "523815393579-etmvfj7jqqb73qeq7j5vp4m420innaud.apps.googleusercontent.com",
++          "client_id": "964010061455-f0bnv9usr5nhjnr00b22e9h2kj63nejr.apps.googleusercontent.com",
+           "client_type": 3
+         }
+       ],
+       "api_key": [
+         {
+-          "current_key": "AIzaSyATPL7OsMiR0PTrTyLxioqffGnO7xKUebw"
++          "current_key": "AIzaSyDgQqUevDl_ym2DKxUarQQdGkK0F6FMpaw"
+         }
+       ],
+       "services": {
+         "appinvite_service": {
+           "other_platform_oauth_client": [
+             {
+-              "client_id": "523815393579-etmvfj7jqqb73qeq7j5vp4m420innaud.apps.googleusercontent.com",
++              "client_id": "964010061455-f0bnv9usr5nhjnr00b22e9h2kj63nejr.apps.googleusercontent.com",
+               "client_type": 3
+             }
+           ]
+Index: android/app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- android/app/build.gradle	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ android/app/build.gradle	(date 1612088407753)
+@@ -22,7 +22,6 @@
+ }
+ 
+ apply plugin: 'com.android.application'
+-apply plugin: 'com.google.gms.google-services'
+ apply plugin: 'kotlin-android'
+ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+ 
+@@ -44,7 +43,6 @@
+         targetSdkVersion 29
+         versionCode flutterVersionCode.toInteger()
+         versionName flutterVersionName
+-        multiDexEnabled true
+     }
+ 
+     buildTypes {
+@@ -66,8 +64,8 @@
+ dependencies {
+     dependencies {
+         implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+-        implementation platform('com.google.firebase:firebase-bom:26.4.0')
+-        implementation 'com.google.firebase:firebase-analytics'
++        implementation platform('com.google.firebase:firebase-bom:26.2.0')
++        implementation 'com.google.firebase:firebase-analytics-ktx'
+         implementation 'androidx.multidex:multidex:2.0.1'
+ }
+     }
+\ No newline at end of file
+Index: Lib/page_spiker.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Lib/page_spiker.dart	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ Lib/page_spiker.dart	(date 1612071483563)
+@@ -15,8 +15,6 @@
+       appBar: AppBar(
+         title: Text('Spiker'),
+       ),
+-      body: Center(
+-          ),
+       floatingActionButton: FloatingActionButton(
+         onPressed: () {
+           Navigator.push(context,
+Index: Lib/page_computer.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Lib/page_computer.dart	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ Lib/page_computer.dart	(date 1612071483582)
+@@ -81,7 +81,6 @@
+       appBar: AppBar(
+         title: Text('Komputer'),
+       ),
+-
+       floatingActionButton: FloatingActionButton(
+         onPressed: () {
+           Navigator.push(context,
+Index: Lib/widget/card_item.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Lib/widget/card_item.dart	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ Lib/widget/card_item.dart	(date 1612070985749)
+@@ -14,7 +14,7 @@
+   @override
+   Widget build(BuildContext context) {
+     return Container(
+-      height: 500,
++      height: 250,
+       width: 150,
+       margin: EdgeInsets.only(
+         right: 10,
+@@ -57,6 +57,7 @@
+           Padding(
+             padding: const EdgeInsets.all(5),
+             child: Align(
++
+               alignment: Alignment.bottomRight,
+               child: Text('Rp. ${widget.item.harga}',
+                 style: TextStyle(fontSize: 12, color: Colors.black),
+Index: Lib/page_handphone.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Lib/page_handphone.dart	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ Lib/page_handphone.dart	(date 1612071483414)
+@@ -91,29 +91,8 @@
+         ),
+ 
+       appBar: AppBar(
+-        title: Text('Handphone'),
++        title: Text('Spiker'),
+       ),
+-      //
+-      // body: ListView.builder(
+-      //     itemCount: data.length,
+-      //     itemBuilder: (context, i){
+-      //       return Card(
+-      //         elevation: 8,
+-      //         child: ListTile(
+-      //           title: Text(
+-      //             data[i].name,
+-      //             style: TextStyle(
+-      //                 fontSize: 18, fontWeight: FontWeight.bold),
+-      //           ),
+-      //           subtitle:
+-      //           Text('Desc: ${data[i].desc}'),
+-      //           trailing:
+-      //           Text("\Rp.${data[i].harga}"),
+-      //         ),
+-      //       );
+-      //         }
+-      //       ),
+-
+       floatingActionButton: FloatingActionButton(
+         onPressed: () {
+           Navigator.push(context,
+@@ -127,4 +106,4 @@
+       ),
+     );
+   }
+-}
+\ No newline at end of file
++}
+Index: Lib/main.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Lib/main.dart	(revision 1fa884852ff462dad3fe88209fcd8cdf359d1da1)
++++ Lib/main.dart	(date 1612070985714)
+@@ -2,11 +2,13 @@
+ import 'package:m2r_iventory/splashscreen.dart';
+ import 'package:firebase_core/firebase_core.dart';
+ 
++
+ void main()  async {
+ WidgetsFlutterBinding.ensureInitialized();
+ await Firebase.initializeApp();
+ runApp(MyApp());
+ }
++
+ class MyApp extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:m2r_iventory/page_edit/edit_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:m2r_iventory/model/item.dart';
+import 'model/edit_item.dart';
+import 'page_edit/edit_page.dart';
 import 'widget/card_item.dart';
+
 
 class PageComputer extends StatefulWidget {
   @override
@@ -56,14 +57,14 @@ class _PageComputerState extends State<PageComputer> {
 
                       );
                       return InkWell(
-                        child: CardItem(item: item),
+                        child: CardItem(item: null),
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => EditItemPage(
-                                  item: item,
-                                  id: document.id,
+                                item: item,
+                                id: document.id,
                               ),
                             ),
                           );

@@ -12,7 +12,6 @@ import 'package:m2r_iventory/page_spiker.dart';
 
 
 
-
 void main() {
   runApp(MaterialApp(
     title: "Selamat",

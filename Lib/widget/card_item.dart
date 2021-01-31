@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:m2r_iventory/model/item.dart';
+import 'package:m2r_iventory/model/edit_item.dart';
 
 class CardItem extends StatefulWidget {
   final Item item;
@@ -14,7 +14,7 @@ class _CardItemState extends State<CardItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 250,
       width: 150,
       margin: EdgeInsets.only(
         right: 10,
@@ -34,7 +34,7 @@ class _CardItemState extends State<CardItem> {
             ),
             child: Image.network(
               'https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg',
-              height: 175,
+              height: 160,
               width: 150,
               fit: BoxFit.cover,
             ),
@@ -43,7 +43,7 @@ class _CardItemState extends State<CardItem> {
             padding: const EdgeInsets.all(5),
             child: Text(
               widget.item.name,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 12, color: Colors.black),
             ),
           ),
           Padding(
@@ -57,8 +57,10 @@ class _CardItemState extends State<CardItem> {
           Padding(
             padding: const EdgeInsets.all(5),
             child: Align(
+
               alignment: Alignment.bottomRight,
-              child: Text('Rp. ${widget.item.harga}',
+              child: Text(
+                widget.item.harga.toString(),
                 style: TextStyle(fontSize: 12, color: Colors.black),
               ),
             ),

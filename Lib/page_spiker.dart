@@ -15,8 +15,6 @@ class _DashboardPageSpiker extends State<PageSpiker> {
       appBar: AppBar(
         title: Text('Spiker'),
       ),
-      body: Center(
-          ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,

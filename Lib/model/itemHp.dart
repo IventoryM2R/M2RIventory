@@ -3,6 +3,7 @@ class ItemHp {
   final String name;
   final String image;
   final String desc;
+  final int qty;
   final int harga;
 
 
@@ -11,6 +12,7 @@ class ItemHp {
     this.name,
     this.image,
     this.desc,
+    this.qty,
     this.harga,
 
   });
@@ -21,6 +23,7 @@ class ItemHp {
       name: json['name'],
       image: json['image'],
       desc: json['desc'],
+      qty: json['qty'],
       harga: json['harga'],
 
     );
@@ -31,7 +34,8 @@ class ItemHp {
     'name': name,
     'image': image,
     'desc': desc,
+    'qty': qty,
     'harga': harga,
-    // 'status': status,
+
   };
 }

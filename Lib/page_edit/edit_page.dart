@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../model/item.dart';
+import '../model/edit_item.dart';
 
 
 class EditItemPage extends StatefulWidget {

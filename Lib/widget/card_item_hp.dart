@@ -8,10 +8,10 @@ class CardItemHp extends StatefulWidget {
   CardItemHp({@required this.itemHp});
 
   @override
-  _CardItemStateHp createState() => _CardItemStateHp();
+  _CardItemState createState() => _CardItemState();
 }
 
-class _CardItemStateHp extends State<CardItemHp> {
+class _CardItemState extends State<CardItemHp> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,8 +59,9 @@ class _CardItemStateHp extends State<CardItemHp> {
             padding: const EdgeInsets.all(5),
             child: Align(
               alignment: Alignment.bottomRight,
-              child: Text('Rp. ${widget.itemHp.harga}',
-                  style: TextStyle(fontSize: 12, color: Colors.black),
+              child: Text(
+                widget.itemHp.harga.toString(),
+                style: TextStyle(fontSize: 12, color: Colors.black),
               ),
             ),
           ),
