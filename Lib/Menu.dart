@@ -1,10 +1,9 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:m2r_iventory/page_computer.dart';
 import 'package:m2r_iventory/page_handphone.dart';
-import 'package:m2r_iventory/page_spiker.dart';
+
 
 void main() {
   runApp(MaterialApp(
@@ -27,7 +26,6 @@ class _MenuState extends State<HomePage> {
   final _widgetOptions = [
     PageComputer(),
     PageHandphone(),
-    PageSpiker(),
   ];
 
   void _onItem (int index) {
@@ -57,18 +55,12 @@ class _MenuState extends State<HomePage> {
               icon: Icon(Icons.phone_android),
               title: Text('Handphone'),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.speaker_sharp),
-              title: Text('Speaker'),
-            ),
           ],
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.blue[800],
           onTap: _onItem,
         ),
-
       drawer: _buildDrawer(),
-
     );
   }
 

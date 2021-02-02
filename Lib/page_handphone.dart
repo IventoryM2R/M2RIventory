@@ -1,6 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:m2r_iventory/page_edit/edit_page_hp.dart';
 import 'package:m2r_iventory/model/itemHp.dart';
 
@@ -13,9 +13,12 @@ class PageHandphone extends StatefulWidget {
 
 class _PageHandphoneState extends State<PageHandphone>{
   @override
-  void iniHp() {
-    super.iniHp();
+  void iniState(){
+    super.initState();
   }
+  // iniHp() {
+  //   super.iniHp();
+  // }
 
   // final data = [
   //   ItemHp(
@@ -48,7 +51,7 @@ class _PageHandphoneState extends State<PageHandphone>{
                 color: Colors.blue,
                 child: StreamBuilder(
                   stream:
-                  FirebaseFirestore.instance.collection('item').snapshots(),
+                  FirebaseFirestore.instance.collection('itemHp').snapshots(),
                   builder: (BuildContext context,
                       AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (!snapshot.hasData) {

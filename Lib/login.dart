@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-
-import 'Menu.dart';
-import 'splashscreen.dart';
+import 'package:m2r_iventory/Menu.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -10,7 +8,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  String username ='Mikodede.251@gmial.com';
+  String username ='Mikodede.251@gmail.com';
   String password = 'Admin';
   TextEditingController usernameController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:m2r_iventory/splashscreen.dart';
 
 
-void main() async {
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());

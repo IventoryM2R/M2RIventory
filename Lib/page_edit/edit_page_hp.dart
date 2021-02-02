@@ -20,16 +20,16 @@ class _EditItemPageState extends State<EditItemPageHp> {
   File image;
 
 
-  @override
-  void iniHp() {
+  void iniState(){
     nameController = TextEditingController();
     descController = TextEditingController();
     hargaController = TextEditingController();
     nameController.text = '';
     descController.text = '';
     hargaController.text = '';
-    super.iniHp();
+    super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
