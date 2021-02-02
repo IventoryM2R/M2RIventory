@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:m2r_iventory/page_computer.dart';
-import 'package:m2r_iventory/page_handphone.dart';
 
 
 void main() {
@@ -25,7 +24,6 @@ class _MenuState extends State<HomePage> {
 
   final _widgetOptions = [
     PageComputer(),
-    PageHandphone(),
   ];
 
   void _onItem (int index) {
@@ -48,12 +46,8 @@ class _MenuState extends State<HomePage> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.computer),
-              title: Text('Komputer'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.phone_android),
-              title: Text('Handphone'),
+              icon: Icon(Icons.book),
+              title: Text('Produk'),
             ),
           ],
           currentIndex: _selectedIndex,

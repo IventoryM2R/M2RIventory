@@ -32,12 +32,6 @@ class _CardItemState extends State<CardItem> {
               topLeft: Radius.circular(5),
               topRight: Radius.circular(5),
             ),
-            child: Image.network(
-              'https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg',
-              height: 160,
-              width: 150,
-              fit: BoxFit.cover,
-            ),
           ),
           Padding(
             padding: const EdgeInsets.all(5),

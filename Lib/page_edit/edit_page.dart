@@ -102,13 +102,6 @@ class _EditItemPageState extends State<EditItemPage> {
                           child: CircleAvatar(
                             radius: 59,
                             backgroundColor: Colors.white,
-                            backgroundImage: image != null
-                                ? FileImage(image)
-                                : widget.item != null
-                                ? widget.item.image.isNotEmpty
-                                ? NetworkImage(widget.item.image)
-                                : NetworkImage("https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg")
-                                : NetworkImage("https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324__340.jpg"),
                           ),
                         ),
                         onTap: () {
@@ -168,7 +161,6 @@ class _EditItemPageState extends State<EditItemPage> {
                       Item item = Item(
                         id: '1',
                         name: nameController.text,
-                        image: '',
                         desc: descController.text,
                         harga: int.parse(hargaController.text),
 
