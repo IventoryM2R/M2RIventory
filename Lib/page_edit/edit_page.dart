@@ -94,21 +94,6 @@ class _EditItemPageState extends State<EditItemPage> {
                 children: [
                   Container(
                     height: 150,
-                    child: Center(
-                      child: InkWell(
-                        child: CircleAvatar(
-                          radius: 60,
-                          backgroundColor: Colors.grey,
-                          child: CircleAvatar(
-                            radius: 59,
-                            backgroundColor: Colors.white,
-                          ),
-                        ),
-                        onTap: () {
-                          // getImage(context);
-                        },
-                      ),
-                    ),
                   ),
                   TextField(
                     controller: nameController,

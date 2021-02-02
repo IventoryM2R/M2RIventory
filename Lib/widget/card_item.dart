@@ -14,10 +14,10 @@ class _CardItemState extends State<CardItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
+      height: 50,
       width: 150,
       margin: EdgeInsets.only(
-        right: 10,
+        right: 50,
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(5)),
@@ -37,7 +37,7 @@ class _CardItemState extends State<CardItem> {
             padding: const EdgeInsets.all(5),
             child: Text(
               widget.item.name,
-              style: TextStyle(fontSize: 12, color: Colors.black),
+              style: TextStyle(fontSize: 18, color: Colors.black),
             ),
           ),
           Padding(
@@ -53,10 +53,7 @@ class _CardItemState extends State<CardItem> {
             child: Align(
 
               alignment: Alignment.bottomRight,
-              child: Text(
-                widget.item.harga.toString(),
-                style: TextStyle(fontSize: 12, color: Colors.black),
-              ),
+              child: Text("\Rp.${widget.item.harga}"),
             ),
           ),
         ],

@@ -41,7 +41,7 @@ class _PageComputerState extends State<PageComputer> {
               color: Colors.black,
             ),
             Container(
-              height: 300,
+              height: 100,
               padding: EdgeInsets.all(5),
               color: Colors.blue,
               child: StreamBuilder(
