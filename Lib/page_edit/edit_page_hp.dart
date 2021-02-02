@@ -14,34 +14,30 @@ class EditItemPageHp extends StatefulWidget {
 }
 
 class _EditItemPageState extends State<EditItemPageHp> {
-  TextEditingController nameControllere;
-  TextEditingController descControllere;
-  TextEditingController qtyControllere;
-  TextEditingController hargaControllere;
+  TextEditingController nameController;
+  TextEditingController descController;
+  TextEditingController hargaController;
   File image;
 
 
   @override
   void iniHp() {
-    nameControllere = TextEditingController();
-    descControllere = TextEditingController();
-    qtyControllere = TextEditingController();
-    hargaControllere = TextEditingController();
-    nameControllere.text = '';
-    descControllere.text = '';
-    qtyControllere.text = '';
-    hargaControllere.text = '';
-    super.initState();
+    nameController = TextEditingController();
+    descController = TextEditingController();
+    hargaController = TextEditingController();
+    nameController.text = '';
+    descController.text = '';
+    hargaController.text = '';
+    super.iniHp();
   }
 
   @override
   Widget build(BuildContext context) {
 
     if (widget.itemHp != null) {
-      nameControllere.text = widget.itemHp.name;
-      descControllere.text = widget.itemHp.desc;
-      qtyControllere.text = widget.itemHp.qty.toString();
-      hargaControllere.text = widget.itemHp.harga.toString();
+      nameController.text = widget.itemHp.name;
+      descController.text = widget.itemHp.desc;
+      hargaController.text = widget.itemHp.harga.toString();
     }
 
     return Scaffold(
@@ -121,7 +117,7 @@ class _EditItemPageState extends State<EditItemPageHp> {
                     ),
                   ),
                   TextField(
-                    controller: nameControllere,
+                    controller: nameController,
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
@@ -133,7 +129,7 @@ class _EditItemPageState extends State<EditItemPageHp> {
                     height: 10,
                   ),
                   TextField(
-                    controller: descControllere,
+                    controller: descController,
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
@@ -145,20 +141,7 @@ class _EditItemPageState extends State<EditItemPageHp> {
                     height: 10,
                   ),
                   TextField(
-                    controller: qtyControllere,
-                    keyboardType: TextInputType.number,
-                    textAlignVertical: TextAlignVertical.center,
-                    textAlign: TextAlign.left,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Qty',
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  TextField(
-                    controller: hargaControllere,
+                    controller: hargaController,
                     keyboardType: TextInputType.number,
                     textAlignVertical: TextAlignVertical.center,
                     textAlign: TextAlign.left,
@@ -184,9 +167,8 @@ class _EditItemPageState extends State<EditItemPageHp> {
                       ItemHp itemHp = ItemHp(
                         id: '1',
                         image: '',
-                        desc: descControllere.text,
-                        qty: int.parse(qtyControllere.text),
-                        harga: int.parse(hargaControllere.text),
+                        desc: descController.text,
+                        harga: int.parse(hargaController.text),
 
 
                       );
@@ -204,7 +186,7 @@ class _EditItemPageState extends State<EditItemPageHp> {
                     },
                   ),
                   Visibility(
-                    // visible: widget.item != null ? true : false,
+                    visible: widget.itemHp != null ? true : false,
                     child: FlatButton(
                       height: 45,
                       color: Colors.red,

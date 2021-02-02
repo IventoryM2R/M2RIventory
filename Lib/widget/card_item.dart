@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:m2r_iventory/model/edit_item.dart';
+import 'package:m2r_iventory/model/item.dart';
 
 class CardItem extends StatefulWidget {
   final Item item;

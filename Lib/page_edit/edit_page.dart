@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../model/edit_item.dart';
+import 'package:m2r_iventory/model/item.dart';
 
 
 class EditItemPage extends StatefulWidget {
@@ -17,7 +17,6 @@ class EditItemPage extends StatefulWidget {
 class _EditItemPageState extends State<EditItemPage> {
   TextEditingController nameController;
   TextEditingController descController;
-  TextEditingController qtyController;
   TextEditingController hargaController;
   File image;
 

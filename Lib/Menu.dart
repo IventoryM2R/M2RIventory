@@ -6,12 +6,6 @@ import 'package:m2r_iventory/page_computer.dart';
 import 'package:m2r_iventory/page_handphone.dart';
 import 'package:m2r_iventory/page_spiker.dart';
 
-
-
-
-
-
-
 void main() {
   runApp(MaterialApp(
     title: "Selamat",
@@ -93,16 +87,14 @@ class _MenuState extends State<HomePage> {
                         'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg  '),
                     fit: BoxFit.cover),
               ),
-              accountName: Text("admin"),
-              accountEmail: Text("Admin"),
+              accountName: Text("Mikodede"),
+              accountEmail: Text("Mikodede.251@gmail"),
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
             ),
             _buildListTile(Icons.home, "Home", null),
-            _buildListTile(Icons.shopping_basket, "Stok", null),
             _buildListTile(Icons.update, "Update", null),
-            _buildListTile(Icons.bookmark_border, "Book", null),
             Divider(
               height: 2.0,
             ),
